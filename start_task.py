@@ -11,11 +11,11 @@ reclaim_client = ReclaimClient(token=token)
 
 if __name__ == "__main__":
     try:
-        task_id = "6801408"  # Replace with the actual task ID
-        url = f"{reclaim_client._api_url}/api/tasks/{task_id}"
+        task_id = "6801435"  # Replace with the actual task ID
+        url = f"{reclaim_client._api_url}/api/planner/start/task/6801408/"
         
         # Using the ReclaimClient instance to make the GET request
-        res = reclaim_client.get(url)
+        res = reclaim_client.post(url)
 
         # Check if the request was successful (status code 200)
         if res.status_code == 200:
