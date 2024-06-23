@@ -1,5 +1,3 @@
-from reclaim_sdk.client import ReclaimAPICall
-from reclaim_sdk.models.model import ReclaimModel
 from reclaim_sdk.client import ReclaimClient
 import os
 from dotenv import load_dotenv
@@ -14,12 +12,19 @@ reclaim_client = ReclaimClient(token=token)
 if __name__ == "__main__":
     try:
         task_id = "6801408"  # Replace with the actual task ID
-        url = f"{reclaim_client._api_url}/api/planner/prioritize/task/{task_id}"
+        url = f"{reclaim_client._api_url}/api/tasks/{task_id}"
         
         # Using the ReclaimClient instance to make the GET request
         res = reclaim_client.get(url)
 
-        print("Task prioritized successfully!")
+        # Check if the request was successful (status code 200)
+        if res.status_code == 200:
+            task_data = res.json()
+            print("Task Data:")
+            print(task_data)
+            print("Task prioritized successfully!")
+        else:
+            print(f"Failed to prioritize task. Status code: {res.status_code}")
 
     except Exception as e:
         print(f"Error: {str(e)}")
