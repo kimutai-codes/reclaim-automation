@@ -13,7 +13,7 @@ token = os.getenv("RECLAIM_TOKEN")
 reclaim_client = ReclaimClient(token=token)
 
 # Define the actual event ID (replace with the one you found)
-actual_event_id = "e9im6r31d5miqobjedkn6t1dehgn6qpqeoojkdho60oj8c1o78o0"  # Example ID, replace with your actual ID
+actual_event_id = "start"  # Example ID, replace with your actual ID
 
 # Define the event data with the correct event ID
 event_data = {
